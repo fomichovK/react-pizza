@@ -1,0 +1,36 @@
+@import '../../App.scss';
+.root {
+  position: relative;
+  left: -150px;
+  top: 15px;
+
+  .serchIcon {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+  }
+
+  .cancelIcon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .input {
+    padding: 10px 10px 10px 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    width: 350px;
+
+    &:focus {
+      border: 0;
+    }
+  }
+}

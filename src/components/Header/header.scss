@@ -1,0 +1,41 @@
+@import '../../App.scss';
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 49px 0;
+  button {
+    @extend .btn;
+
+    background-color: $orang;
+    background-color: $orang;
+    color: white;
+
+    img {
+      width: 16px;
+      padding: 5px;
+    }
+  }
+}
+
+.logoImg {
+  margin: 0 15px 0 0;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  p {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+  }
+  span {
+    color: #7b7b7b;
+    font-size: 16px;
+  }
+  img {
+    width: 38px;
+  }
+}

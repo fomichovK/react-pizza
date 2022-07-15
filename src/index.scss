@@ -1,0 +1,11 @@
+// @import-normalize;
+
+a {
+  &:visited {
+    color: black;
+  }
+}
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}

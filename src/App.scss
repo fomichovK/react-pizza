@@ -1,0 +1,57 @@
+$orang: #fe5f1e;
+$activColor: #2c2c2c;
+
+a {
+  text-decoration: none;
+}
+// p {
+//   // margin: 0;
+// }
+body {
+  background: rgba(255, 223, 140, 1);
+}
+// h3 {
+//   margin: 0;
+//   padding: 0;
+// }
+.btn {
+  border: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 22px;
+  font-weight: 700;
+  font-size: 16px;
+  // width: 150px;
+  border-radius: 30px;
+  color: white;
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, 1);
+  margin: 0 auto;
+  padding: 0 35px;
+  max-width: 1340px;
+}
+h3 {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 35px;
+}
+
+.pizzaList {
+  margin: 0 10px 86px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+
+  svg {
+    margin: 5px 23px 86px 23px;
+  }
+}
+.filter {
+  position: relative;
+  display: flex;
+  padding: 30px 0;
+  justify-content: space-between;
+  justify-items: center;
+}
