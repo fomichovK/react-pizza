@@ -31,7 +31,6 @@ export default function Sort() {
     const getToggleSort = (event) => {
       if (!event.path.includes(sortRef.current)) {
         setOpenPopUp(false);
-        console.log('event');
       }
     };
 

@@ -3,6 +3,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 49px 0;
   button {
     @extend .btn;

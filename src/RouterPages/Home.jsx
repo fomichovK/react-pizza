@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import qs from 'qs';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
@@ -10,18 +11,16 @@ import PizzaCard from '../components/PizzaCard';
 import PizzaSkeleton from '../components/PizzaCard/PizzaSkeleton';
 
 import { setCategoryId } from '../redux/Slices/filterSlice';
+import { useNavigate } from 'react-router-dom';
 
 const url = 'https://62b83a2b03c36cb9b7c3b52d.mockapi.io/pizas?';
 
-// export const FilterContext = createContext();
-
 const Home = () => {
-  //redux
+  const activIndex = useSelector((state) => state.filter.id); //redux
 
-  const activIndex = useSelector((state) => state.filter.id);
-
-  const sortType = useSelector((state) => state.filter.sortby.sort);
+  const sortType = useSelector((state) => state.filter.sortby.sort); //redux
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const setActivIndex = (id) => {
     dispatch(setCategoryId(id));
@@ -34,9 +33,6 @@ const Home = () => {
   const [list, setList] = useState([]);
   const [isloading, setIsLoading] = useState(true);
 
-  // const [activIndex, setActivIndex] = useState(0);
-  // const [sortType, setSortType] = useState({ name: 'популярности', sort: 'rating:' });
-
   const sceleton = [...new Array(6)].map((_, i) => {
     return <PizzaSkeleton key={i} />;
   });
@@ -47,24 +43,27 @@ const Home = () => {
 
   const categoey = activIndex;
 
-  const sortBy = `sortBy=${sortType}&order=desc`;
-
-  const search = searchValue ? `search=${searchValue}` : '';
-  const categoeyFiltr = categoey !== 0 ? `category=${categoey}` : '';
-
   useEffect(() => {
     setIsLoading(true);
-    // fetch(`${url}${categoeyFiltr}&${sortBy}&${search}`)
-    //   .then((res) => res.json())
-    //   .then((arr) => {
-    //     setList(arr);
-    //     setIsLoading(false);
-    //   });
-    axios.get(`${url}${categoeyFiltr}&${sortBy}&${search}`).then((res) => {
+
+    const sortBy = `sortBy=${sortType}&order=desc`;
+    const search = searchValue ? `search=${searchValue}` : '';
+    const categoryFiltr = categoey !== 0 ? `category=${categoey}` : '';
+
+    axios.get(`${url}${categoryFiltr}&${sortBy}&${search}`).then((res) => {
       setList(res.data);
       setIsLoading(false);
     });
-  }, [categoeyFiltr, search, searchValue, sortBy, sortType]);
+  }, [categoey, searchValue, sortType]);
+
+  useEffect(() => {
+    const queryString = qs.stringify({
+      categoey,
+      sortBy: `${sortType}`,
+    });
+    console.log('qs', queryString);
+    navigate(`?${queryString}`);
+  }, [categoey, navigate, searchValue, sortType]);
 
   return (
     <>

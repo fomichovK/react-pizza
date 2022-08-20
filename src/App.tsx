@@ -6,7 +6,7 @@ import Cart from './RouterPages/Cart';
 import NotFound from './RouterPages/NotFound';
 import { createContext, useState } from 'react';
 
-export const SerchContext = createContext();
+export const SerchContext = createContext<any>(null);
 
 function App() {
   const [searchValue, setSeachValue] = useState();
@@ -18,7 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='cart' element={<Cart />} />
-          <Route path='*' element={<NotFound />} />
+          <Route path='#' element={<NotFound />} />
         </Routes>
       </SerchContext.Provider>
     </div>

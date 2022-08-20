@@ -1,8 +1,10 @@
-.content {
-  max-width: 550px;
+@import '../../App.scss';
+.root {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 0 0 50px 0;
   text-align: center;
+  height: 100vh;
   p {
     font-size: 20px;
     color: #7777;
@@ -16,4 +18,79 @@ h2 {
 
 .emptyImg {
   margin: 80px;
+}
+
+.cartHeader {
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+
+  .cart {
+    position: relative;
+    font-weight: 700;
+    font-size: 32px;
+    color: #000000;
+    line-height: 31px;
+    padding-left: 37px;
+
+    img {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      left: 0;
+    }
+  }
+  .trash {
+    color: #b6b6b6;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    padding-left: 25px;
+    cursor: pointer;
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      color: #818181;
+    }
+  }
+  img {
+    width: 18px;
+    height: 18px;
+  }
+}
+.count {
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  i {
+    font-weight: 700;
+  }
+  .sum {
+    color: $orang;
+  }
+}
+.footerButton {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+.backButton {
+  background-color: inherit;
+  border: 1px solid $lightGray;
+  color: $lightGray;
+  padding: 15px 30px;
+  i {
+    padding-right: 10px;
+  }
+}
+.payButton {
+  background-color: $orang;
+  color: white;
+  padding: 15px 30px;
 }

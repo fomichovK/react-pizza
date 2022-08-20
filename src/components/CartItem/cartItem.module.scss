@@ -1,0 +1,69 @@
+@import '../../App.scss';
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  border-top: 1px solid #f4f4f4;
+  img {
+    height: 80px;
+    width: 80px;
+  }
+  span {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  i {
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    color: #8d8d8d;
+  }
+  .button {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    padding: 0;
+    background: inherit;
+    border: 2px $orang solid;
+    border-radius: 100%;
+    font-size: 24px;
+    text-align: center;
+    color: $orang;
+    transition: all 0.2s;
+    &:hover {
+      background: $orang;
+      color: #fff;
+    }
+  }
+  .button_del {
+    @extend .button;
+    border: 2px #d0d0d0 solid;
+    color: #d0d0d0;
+    font-size: 22px;
+    transition: all 0.2s;
+    &:hover {
+      background: #6e6e6e;
+      color: #fff;
+    }
+  }
+}
+.itemDesc {
+  padding-right: 200px;
+  text-align: left;
+}
+.amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // width: 100px;
+
+  span {
+    padding: 0 12px;
+  }
+}
+i {
+  font-style: normal;
+}

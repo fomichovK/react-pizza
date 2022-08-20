@@ -6,8 +6,15 @@ import logo from '../../assets/img/logo.svg';
 import cart from '../../assets/img/shopp_cart.png';
 
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+  const { items, totalPrice } = useSelector((state) => state.cart);
+
+  const totalCount = items.reduce((sum, el) => {
+    return sum + el.count;
+  }, 0);
+
   return (
     <div className='header'>
       <Link to='/'>
@@ -27,7 +34,7 @@ export default function Header() {
       <Link to='Cart'>
         <div className='../../RouterPages/Cart'>
           <button>
-            520₴ | <img src={cart} alt='Корзина' /> {3}
+            {totalPrice}₴ | <img src={cart} alt='Корзина' /> {totalCount}
           </button>
         </div>
       </Link>

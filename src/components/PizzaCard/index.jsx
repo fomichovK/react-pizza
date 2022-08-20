@@ -1,18 +1,32 @@
 import './pizzaCard.scss';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../../redux/Slices/cartSlice';
 
-export default function PizzaCard({
-  title = 'чисто тесто ))',
-  price = '0',
-  imageUrl,
-  sizes,
-  types,
-}) {
-  const [count, setCount] = useState(0);
-  const [slectType, setSelectType] = useState(0);
-  const [slectSize, setSelectSize] = useState(0);
+export default function PizzaCard({ id, title, price, imageUrl, sizes, types }) {
+  const dispatch = useDispatch();
+  const findItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
 
-  const typeList = ['тонкое', 'традиционное'];
+  const countItem = findItem ? findItem.count : 0;
+
+  const { items, totalPrice } = useSelector((state) => state.cart);
+
+  const [selectType, setSelectType] = useState(0);
+  const [selectSize, setSelectSize] = useState(0);
+
+  const typeList = ['Tонкое', 'Tрадиционное'];
+
+  const addCartItem = (id) => {
+    const pizza = {
+      id,
+      title,
+      price,
+      imageUrl,
+      sizes: sizes[selectSize],
+      type: typeList[selectType],
+    };
+    dispatch(addItem(pizza));
+  };
 
   return (
     <div className='card'>
@@ -25,7 +39,7 @@ export default function PizzaCard({
               <div
                 key={index}
                 onClick={() => setSelectType(index)}
-                className={slectType === index ? 'select' : ''}>
+                className={selectType === index ? 'select' : ''}>
                 {typeList[type]}
               </div>
             );
@@ -37,7 +51,7 @@ export default function PizzaCard({
               <div
                 key={index}
                 onClick={() => setSelectSize(index)}
-                className={slectSize === index ? 'select' : ''}>
+                className={selectSize === index ? 'select' : ''}>
                 {size} см
               </div>
             );
@@ -46,8 +60,9 @@ export default function PizzaCard({
       </div>
       <div className='cardFooter'>
         <div className='price'>от {price}₴</div>
-        <button className='addInCart' onClick={() => setCount(count + 1)}>
-          + Добавть <span>{count}</span>
+        <button className='addInCart' onClick={() => addCartItem(id)}>
+          + Добавть
+          {countItem > 0 && <span>{countItem}</span>}
         </button>
       </div>
     </div>
