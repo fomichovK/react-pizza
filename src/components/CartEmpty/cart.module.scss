@@ -3,19 +3,38 @@
   margin: 0 auto;
   padding: 100px;
   text-align: center;
+  @media screen and (max-width: 600px) {
+    padding: 5px;
+  }
   p {
     font-size: 20px;
     color: #7777;
+    @media screen and (max-width: 600px) {
+      font-size: 16px;
+    }
+    @media screen and (max-width: 340px) {
+      font-size: 10px;
+    }
   }
 }
 
 h2 {
   font-size: 32px;
   color: black;
+
+  @media screen and (max-width: 600px) {
+    font-size: 25px;
+  }
+  @media screen and (max-width: 340px) {
+    font-size: 20px;
+  }
 }
 
 .emptyImg {
-  margin: 80px;
+  margin: 80px auto;
+  @media screen and (max-width: 600px) {
+    width: 80%;
+  }
 }
 .button {
   margin: 0 auto;

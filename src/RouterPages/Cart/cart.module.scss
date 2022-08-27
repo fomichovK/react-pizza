@@ -33,21 +33,29 @@ h2 {
     color: #000000;
     line-height: 31px;
     padding-left: 37px;
-
-    img {
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      left: 0;
+    @media screen and (max-width: 748px) {
+      font-size: 25px;
     }
   }
-  .trash {
-    color: #b6b6b6;
-    position: relative;
-    font-weight: 400;
-    font-size: 16px;
-    padding-left: 25px;
-    cursor: pointer;
+
+  img {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    left: 0;
+  }
+}
+.trash {
+  color: #b6b6b6;
+  position: relative;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 25px;
+  cursor: pointer;
+  @media screen and (max-width: 405px) {
+    i {
+      display: none;
+    }
     img {
       position: absolute;
       left: 0;
@@ -69,8 +77,17 @@ h2 {
   display: flex;
   justify-content: space-between;
   font-size: 22px;
+  @media screen and (max-width: 748px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 440px) {
+    font-size: 10px;
+  }
+
   i {
     font-weight: 700;
+    font-style: normal;
   }
   .sum {
     color: $orang;
@@ -80,12 +97,21 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin: 30px;
+  @media screen and (max-width: 440px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .backButton {
   background-color: inherit;
   border: 1px solid $lightGray;
   color: $lightGray;
   padding: 15px 30px;
+  @media screen and (max-width: 614px) {
+    font-size: 10px;
+    padding: 10px 20px;
+  }
+
   i {
     padding-right: 10px;
   }
@@ -94,4 +120,8 @@ h2 {
   background-color: $orang;
   color: white;
   padding: 15px 30px;
+  @media screen and (max-width: 614px) {
+    font-size: 10px;
+    padding: 10px 20px;
+  }
 }

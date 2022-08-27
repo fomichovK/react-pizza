@@ -7,19 +7,30 @@
   padding: 30px 0;
   border-top: 1px solid #f4f4f4;
 
+  @media screen and (max-width: 614px) {
+    flex-direction: column;
+  }
+
   img {
     height: 80px;
     width: 80px;
+    margin-right: 15px;
   }
   span {
     font-weight: 700;
     font-size: 22px;
+    @media screen and (max-width: 748px) {
+      font-size: 16px;
+    }
   }
   i {
     display: block;
     font-weight: 400;
     font-size: 18px;
     color: #8d8d8d;
+    @media screen and (max-width: 748px) {
+      font-size: 14px;
+    }
   }
   .button {
     width: 32px;
@@ -51,23 +62,35 @@
   }
 }
 .itemDesc {
-  padding-right: 200px;
-  text-align: left;
-  flex: 2;
-}
-.price {
-  flex: 1;
-}
-.amount {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex: 0;
-
-  span {
-    padding: 0 12px;
+  text-align: left;
+  // flex: 2;
+  overflow: hidden;
+  @media screen and (max-width: 614px) {
+    margin-bottom: 15px;
   }
 }
-i {
-  font-style: normal;
+
+.itemPrice {
+  display: flex;
+  align-items: center;
+  // flex: 1;
+  .price {
+    margin: 0 15px;
+  }
+  .amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // flex: 0;
+
+    span {
+      padding: 0 12px;
+    }
+  }
+  i {
+    font-style: normal;
+  }
 }

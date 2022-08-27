@@ -40,16 +40,14 @@
     border: 1px solid rgba(128, 128, 128, 0.4);
     width: 70%;
     transition: 0.5s;
-    left: 0;
-    margin-right: 10px;
 
     @media screen and (max-width: 943px) {
-      width: 85%;
+      width: 98%;
     }
 
     &:focus {
       border: 0;
-      width: 95%;
+      width: 100%;
     }
   }
 }

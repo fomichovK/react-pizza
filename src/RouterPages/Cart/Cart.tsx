@@ -35,7 +35,7 @@ const Card: React.FC = () => {
         </span>
         <span onClick={fullClear} className={style.trash}>
           <img src={trashIcon} alt='trashIcon' />
-          Очистить корзину
+          <i>Очистить корзину</i>
         </span>
       </div>
       {items.map((item: any) => {

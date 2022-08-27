@@ -2,7 +2,11 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  // padding: 31px 0;
+
+  @media screen and (max-width: 1100px) {
+    overflow-x: scroll;
+    margin-right: 15px;
+  }
 }
 .activ {
   background-color: $activColor;

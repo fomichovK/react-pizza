@@ -2,6 +2,7 @@ import React from 'react';
 
 import style from './cart.module.scss';
 import emptyCart from '../../assets/img/emptyCart.png';
+import { Link } from 'react-router-dom';
 
 const Card: React.FC = () => {
   return (
@@ -14,7 +15,9 @@ const Card: React.FC = () => {
       <div>
         <img className={style.emptyImg} src={emptyCart} alt='empty' />
       </div>
-      <button className={style.button}>Вернуться назад</button>
+      <Link to='/'>
+        <button className={style.button}>Вернуться назад</button>
+      </Link>
     </div>
   );
 };

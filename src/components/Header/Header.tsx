@@ -37,7 +37,7 @@ const Header: React.FC = () => {
       <Link to='Cart'>
         <div className='cart__btn'>
           <button>
-            {totalPrice}₴ | <img src={cart} alt='Корзина' /> {totalCount}
+            <i>{totalPrice} ₴ | </i> <img src={cart} alt='Корзина' /> {totalCount}
           </button>
         </div>
       </Link>

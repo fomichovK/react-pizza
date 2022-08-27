@@ -6,9 +6,22 @@
   align-items: center;
   padding: 49px 0;
 
+  @media screen and (max-width: 770px) {
+    padding: 20px 0;
+  }
+
   .cart__btn {
-    order: 3;
+    i {
+      font-style: normal;
+    }
+    @media screen and (max-width: 770px) {
+      min-width: 95px;
+      i {
+        display: none;
+      }
+    }
     button {
+      width: 100%;
       @extend .btn;
 
       background-color: $orang;
@@ -22,8 +35,8 @@
     }
 
     img {
-      width: 16px;
-      padding: 5px;
+      width: 15px;
+      margin: 2px 5px 0 5px;
     }
   }
 }
@@ -45,27 +58,36 @@
     width: 40px;
     margin-right: 10px;
   }
-  p {
-    font-weight: bold;
-    font-size: 20px;
-    @media screen and (max-width: 706px) {
-      font-size: 15px;
-    }
+  @media screen and (max-width: 520px) {
+    width: 40px;
+    margin-right: 10px;
+  }
+  @media screen and (max-width: 350px) {
+    display: none;
+  }
+
+  .slogan {
     @media screen and (max-width: 520px) {
       display: none;
     }
-  }
-  span {
-    color: #7b7b7b;
-    font-size: 10px;
-    @media screen and (max-width: 706px) {
-      font-size: 8px;
-      line-height: 0;
+
+    p {
+      font-weight: bold;
+      font-size: 20px;
+      @media screen and (max-width: 706px) {
+        font-size: 15px;
+      }
     }
-    @media screen and (max-width: 520px) {
-      display: none;
+    span {
+      color: #7b7b7b;
+      font-size: 10px;
+      @media screen and (max-width: 706px) {
+        font-size: 8px;
+        line-height: 0;
+      }
     }
   }
+
   img {
     width: 38px;
   }

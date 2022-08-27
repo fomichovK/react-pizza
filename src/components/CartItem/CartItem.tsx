@@ -29,28 +29,32 @@ const CartItem: React.FC<CartItemType> = ({ id, title, price, imageUrl, sizes, t
 
   return (
     <div className={style.cartItem}>
-      <img src={imageUrl} alt='pizzaImg' />
-      <span className={style.itemDesc}>
-        {title}{' '}
-        <i>
-          {types}, {sizes} см.
-        </i>
-      </span>
-
-      <div className={style.amount}>
-        <p onClick={() => minusCartItem(id)} className={style.button}>
-          -
-        </p>
-        <span>{count}</span>
-        <p onClick={() => addCartItem(id)} className={style.button}>
-          +
-        </p>
+      <div className={style.itemDesc}>
+        <img src={imageUrl} alt='pizzaImg' />
+        <span>
+          {title}{' '}
+          <i>
+            {types}, {sizes} см.
+          </i>
+        </span>
       </div>
 
-      <span className={style.price}>{price * count} ₴</span>
-      <p className={style.button_del} onClick={() => deleteItem(id)}>
-        x
-      </p>
+      <div className={style.itemPrice}>
+        <div className={style.amount}>
+          <p onClick={() => minusCartItem(id)} className={style.button}>
+            -
+          </p>
+          <span>{count}</span>
+          <p onClick={() => addCartItem(id)} className={style.button}>
+            +
+          </p>
+        </div>
+
+        <span className={style.price}>{price * count} ₴</span>
+        <p className={style.button_del} onClick={() => deleteItem(id)}>
+          x
+        </p>
+      </div>
     </div>
   );
 };
