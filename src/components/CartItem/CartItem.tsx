@@ -1,20 +1,29 @@
 import React from 'react';
 import style from './cartItem.module.scss';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { addItem, minusItem, delItem } from '../../redux/Slices/cartSlice';
+import { useDispatch } from 'react-redux';
+import { addItem, minusItem, delItem, CartItemType } from '../../redux/Slices/cartSlice';
 
-const CartItem = ({ id, title, type, price, sizes, imageUrl, count }) => {
+const CartItem: React.FC<CartItemType> = ({ id, title, price, imageUrl, sizes, types, count }) => {
   const dispatch = useDispatch();
-  const { items, totalPrice } = useSelector((state) => state.cart);
 
-  const addCartItem = (id) => {
-    dispatch(addItem({ id }));
+  const addCartItem = (id: number) => {
+    dispatch(
+      addItem({
+        id,
+        title: '',
+        price: 0,
+        imageUrl: '',
+        sizes: 0,
+        types: 0,
+        count: 0,
+      }),
+    );
   };
-  const minusCartItem = (id) => {
+  const minusCartItem = (id: number) => {
     dispatch(minusItem({ id }));
   };
-  const deleteItem = (id) => {
+  const deleteItem = (id: number) => {
     dispatch(delItem({ id }));
   };
 
@@ -24,7 +33,7 @@ const CartItem = ({ id, title, type, price, sizes, imageUrl, count }) => {
       <span className={style.itemDesc}>
         {title}{' '}
         <i>
-          {type}, {sizes} см.
+          {types}, {sizes} см.
         </i>
       </span>
 
@@ -38,8 +47,8 @@ const CartItem = ({ id, title, type, price, sizes, imageUrl, count }) => {
         </p>
       </div>
 
-      <span>{price * count} ₴</span>
-      <p onClick={() => deleteItem(id)} className={style.button_del}>
+      <span className={style.price}>{price * count} ₴</span>
+      <p className={style.button_del} onClick={() => deleteItem(id)}>
         x
       </p>
     </div>

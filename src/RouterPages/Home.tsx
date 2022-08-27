@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import qs from 'qs';
+// import qs from 'qs';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
@@ -11,33 +11,32 @@ import PizzaCard from '../components/PizzaCard';
 import PizzaSkeleton from '../components/PizzaCard/PizzaSkeleton';
 
 import { setCategoryId } from '../redux/Slices/filterSlice';
-import { useNavigate } from 'react-router-dom';
+import { RootState } from '../redux/store';
+// import { useNavigate } from 'react-router-dom';
 
 const url = 'https://62b83a2b03c36cb9b7c3b52d.mockapi.io/pizas?';
 
-const Home = () => {
-  const activIndex = useSelector((state) => state.filter.id); //redux
+const Home: React.FC = () => {
+  const activIndex = useSelector((state: RootState) => state.filter.id); //redux
 
-  const sortType = useSelector((state) => state.filter.sortby.sort); //redux
+  const sortType = useSelector((state: RootState) => state.filter.sortBy.sort); //redux
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const setActivIndex = (id) => {
+  const setActivIndex = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  //--------------------//
-
   const { searchValue } = useContext(SerchContext);
 
-  const [list, setList] = useState([]);
-  const [isloading, setIsLoading] = useState(true);
+  const [list, setList] = useState<[]>([]);
+  const [isloading, setIsLoading] = useState<boolean>(true);
 
   const sceleton = [...new Array(6)].map((_, i) => {
     return <PizzaSkeleton key={i} />;
   });
 
-  const pizzas = list.map((item) => {
+  const pizzas = list.map((item: any) => {
     return <PizzaCard key={item.id} {...item} />;
   });
 
@@ -56,14 +55,13 @@ const Home = () => {
     });
   }, [categoey, searchValue, sortType]);
 
-  useEffect(() => {
-    const queryString = qs.stringify({
-      categoey,
-      sortBy: `${sortType}`,
-    });
-    console.log('qs', queryString);
-    navigate(`?${queryString}`);
-  }, [categoey, navigate, searchValue, sortType]);
+  // useEffect(() => {
+  //   const queryString = qs.stringify({
+  //     categoey,
+  //     sortBy: `${sortType}`,
+  //   });
+  //   navigate(`?${queryString}`);
+  // }, [categoey, navigate, searchValue, sortType]);
 
   return (
     <>

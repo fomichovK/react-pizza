@@ -1,8 +1,13 @@
 import './nav.scss';
 
-export default function Nav({ activIndex, setActivIndex }) {
-  const categories = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытие'];
+type NavPropType = {
+  activIndex: number;
+  setActivIndex: (i: number) => void;
+};
 
+const categories = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытие'];
+
+const Nav: React.FC<NavPropType> = ({ activIndex, setActivIndex }) => {
   return (
     <div className='nav'>
       <div className='navButtons'>
@@ -19,4 +24,5 @@ export default function Nav({ activIndex, setActivIndex }) {
       </div>
     </div>
   );
-}
+};
+export default Nav;

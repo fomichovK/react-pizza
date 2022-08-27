@@ -1,7 +1,19 @@
 @import '../../App.scss';
 .root {
   position: relative;
-  left: -150px;
+  // left: -100px;
+  width: 700px;
+
+  @media screen and (max-width: 1154px) {
+    left: 0;
+    width: 500px;
+  }
+  @media screen and (max-width: 947px) {
+    width: 300px;
+  }
+  @media screen and (max-width: 565px) {
+    width: 200px;
+  }
 
   .serchIcon {
     position: absolute;
@@ -26,10 +38,18 @@
     padding: 10px 10px 10px 40px;
     border-radius: 10px;
     border: 1px solid rgba(128, 128, 128, 0.4);
-    width: 350px;
+    width: 70%;
+    transition: 0.5s;
+    left: 0;
+    margin-right: 10px;
+
+    @media screen and (max-width: 943px) {
+      width: 85%;
+    }
 
     &:focus {
       border: 0;
+      width: 95%;
     }
   }
 }

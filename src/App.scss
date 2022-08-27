@@ -5,26 +5,32 @@ $lightGray: #d3d3d3;
 a {
   text-decoration: none;
 }
-// p {
-//   // margin: 0;
-// }
+* {
+  box-sizing: border-box;
+  line-height: 20px;
+}
+p,
+span {
+  margin: 0;
+  padding: 0;
+  // line-height: 0;
+}
 body {
   background: rgba(255, 223, 140, 1);
 }
-// h3 {
-//   margin: 0;
-//   padding: 0;
-// }
 .btn {
   border: 0;
   display: flex;
   justify-content: space-around;
-  padding: 15px 22px;
+  padding: 13px 25px;
   font-weight: 700;
   font-size: 16px;
-  // width: 150px;
   border-radius: 30px;
   color: white;
+  // @media screen and (max-width: 770px) {
+  //   padding: 10px 15px;
+  //   font-size: 13px;
+  // }
 }
 
 .wrapper {
@@ -32,6 +38,9 @@ body {
   margin: 0 auto;
   padding: 0 35px;
   max-width: 1340px;
+  @media screen and (max-width: 1421px) {
+    margin: 0 5px;
+  }
 }
 h3 {
   font-weight: 700;
@@ -41,9 +50,18 @@ h3 {
 
 .pizzaList {
   margin: 0 10px 86px 10px;
+
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
+  justify-content: start;
+
+  @media screen and (max-width: 1346px) {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
+  @media screen and (max-width: 1354px) {
+    justify-content: space-around;
+  }
 
   svg {
     margin: 5px 23px 86px 23px;
@@ -52,7 +70,7 @@ h3 {
 .filter {
   position: relative;
   display: flex;
-  padding: 30px 0;
+  margin: 30px 0;
   justify-content: space-between;
   justify-items: center;
 }

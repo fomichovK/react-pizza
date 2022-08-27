@@ -3,7 +3,7 @@ import React from 'react';
 import style from './cart.module.scss';
 import emptyCart from '../../assets/img/emptyCart.png';
 
-const Card = () => {
+const Card: React.FC = () => {
   return (
     <div className={style.content}>
       <h2>Корзина пустая 😕</h2>

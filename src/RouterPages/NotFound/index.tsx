@@ -2,7 +2,7 @@ import React from 'react';
 
 import style from './notFount.module.scss';
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
   return (
     <div className={style.massage}>
       404

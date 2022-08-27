@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,29 +7,35 @@ import { setSort } from '../../redux/Slices/filterSlice';
 
 import style from './sort.module.scss';
 import arrow from '../../assets/img/Vector.svg';
+import { RootState } from '../../redux/store';
 
-const sortList = [
+type SortListType = {
+  name: string;
+  sort: string;
+};
+
+const sortList: SortListType[] = [
   { name: 'популярности', sort: 'rating' },
   { name: 'по цене', sort: 'price' },
   { name: 'по алфавиту', sort: 'title' },
 ];
 
-export default function Sort() {
+const Sort: React.FC = () => {
   const dispatch = useDispatch();
-  const sortType = useSelector((state) => state.filter.sortby);
+  const sortType = useSelector((state: RootState) => state.filter.sortBy);
+  const sortRef = useRef(null);
 
   const [openPopUp, setOpenPopUp] = useState(false);
 
-  const selectedItem = (obj) => {
+  const selectedItem = (obj: SortListType) => {
     dispatch(setSort(obj));
     setOpenPopUp(false);
   };
 
-  const sortRef = useRef();
-
   useEffect(() => {
-    const getToggleSort = (event) => {
-      if (!event.path.includes(sortRef.current)) {
+    const getToggleSort = (event: MouseEvent) => {
+      const _event = event as MouseEvent & { path: Node[] };
+      if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setOpenPopUp(false);
       }
     };
@@ -63,4 +69,5 @@ export default function Sort() {
       )}
     </div>
   );
-}
+};
+export default Sort;

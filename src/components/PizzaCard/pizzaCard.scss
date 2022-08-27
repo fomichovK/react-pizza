@@ -1,12 +1,13 @@
 @import '../../App.scss';
 .card {
-  max-width: 280px;
+  width: 272px;
   text-align: center;
-  margin: 0 33px 86px 33px;
+  margin: 0 20px 86px 20px;
 
   img {
     width: 260px;
     height: 260px;
+    margin-left: 7px;
   }
 }
 .cardTitle {

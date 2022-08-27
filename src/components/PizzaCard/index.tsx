@@ -1,29 +1,41 @@
-import './pizzaCard.scss';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../../redux/Slices/cartSlice';
 
-export default function PizzaCard({ id, title, price, imageUrl, sizes, types }) {
+import './pizzaCard.scss';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, CartItemType } from '../../redux/Slices/cartSlice';
+import { RootState } from '../../redux/store';
+
+type IPizzaCardType = {
+  id: number;
+  title: string;
+  price: number;
+  imageUrl: string;
+  sizes: number[];
+  types: string[];
+};
+
+const PizzaCard: React.FC<CartItemType> = ({ id, title, price, imageUrl, sizes, types }) => {
   const dispatch = useDispatch();
-  const findItem = useSelector((state) => state.cart.items.find((obj) => obj.id === id));
+  const findItem = useSelector(
+    (state: RootState) => state.cart.items.find((obj: any) => obj.id === id), //?????????????
+  );
 
   const countItem = findItem ? findItem.count : 0;
-
-  const { items, totalPrice } = useSelector((state) => state.cart);
 
   const [selectType, setSelectType] = useState(0);
   const [selectSize, setSelectSize] = useState(0);
 
   const typeList = ['Tонкое', 'Tрадиционное'];
 
-  const addCartItem = (id) => {
+  const addCartItem = (id: number) => {
     const pizza = {
       id,
       title,
       price,
       imageUrl,
       sizes: sizes[selectSize],
-      type: typeList[selectType],
+      types: typeList[selectType],
     };
     dispatch(addItem(pizza));
   };
@@ -34,7 +46,7 @@ export default function PizzaCard({ id, title, price, imageUrl, sizes, types }) 
       <div className='cardTitle'>{title}</div>
       <div className='pizzaCardType'>
         <div className='pizzaType'>
-          {types.map((type, index) => {
+          {types.map((type: any, index: number) => {
             return (
               <div
                 key={index}
@@ -61,10 +73,12 @@ export default function PizzaCard({ id, title, price, imageUrl, sizes, types }) 
       <div className='cardFooter'>
         <div className='price'>от {price}₴</div>
         <button className='addInCart' onClick={() => addCartItem(id)}>
-          + Добавть
+          + Добавить
           {countItem > 0 && <span>{countItem}</span>}
         </button>
       </div>
     </div>
   );
-}
+};
+
+export default PizzaCard;

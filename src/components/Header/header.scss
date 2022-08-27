@@ -1,16 +1,25 @@
 @import '../../App.scss';
 .header {
-  position: relative;
+  // position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 49px 0;
-  button {
-    @extend .btn;
 
-    background-color: $orang;
-    background-color: $orang;
-    color: white;
+  .cart__btn {
+    order: 3;
+    button {
+      @extend .btn;
+
+      background-color: $orang;
+      background-color: $orang;
+      color: white;
+      @media screen and (max-width: 770px) {
+        padding: 10px 15px;
+        height: 45px;
+        font-size: 13px;
+      }
+    }
 
     img {
       width: 16px;
@@ -26,15 +35,36 @@
 .logo {
   display: flex;
   align-items: flex-end;
+  // line-height: 20px;
+
+  @media screen and (max-width: 706px) {
+    width: 180px;
+    line-height: 15px;
+  }
+  @media screen and (max-width: 520px) {
+    width: 40px;
+    margin-right: 10px;
+  }
   p {
     font-weight: bold;
-    font-size: 24px;
-    margin: 0;
-    padding: 0;
+    font-size: 20px;
+    @media screen and (max-width: 706px) {
+      font-size: 15px;
+    }
+    @media screen and (max-width: 520px) {
+      display: none;
+    }
   }
   span {
     color: #7b7b7b;
-    font-size: 16px;
+    font-size: 10px;
+    @media screen and (max-width: 706px) {
+      font-size: 8px;
+      line-height: 0;
+    }
+    @media screen and (max-width: 520px) {
+      display: none;
+    }
   }
   img {
     width: 38px;

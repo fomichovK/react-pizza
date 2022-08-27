@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Home from './RouterPages/Home';
-import Cart from './RouterPages/Cart';
+import Cart from './RouterPages/Cart/Cart';
 import NotFound from './RouterPages/NotFound';
 import { createContext, useState } from 'react';
 
